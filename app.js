@@ -15,7 +15,7 @@ app.use(
 
 module.exports = app;
 
-app.get("/hello", (request, response) => {
+app.get("/test/hello", (request, response) => {
   response.status(200).send({ type: "success", message: "Hello" });
 });
 
