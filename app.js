@@ -29,6 +29,15 @@ process.on("SIGTERM", function () {
   process.exit(); // process SHOULD exit by itself, after the OS sends kill code.
 });
 
+process.on("SIGINT", function () {
+  // monitor for SIGTERM(^C)
+  console.log("Shutting down service.");
+
+  // Graceful shutdown: can close sockets, close DB connections, clean up resources etc.
+
+  process.exit(); // process SHOULD exit by itself, after the OS sends kill code.
+});
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}.`);
 });
