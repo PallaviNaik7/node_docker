@@ -16,7 +16,9 @@ app.use(
 module.exports = app;
 
 app.get("/test/hello", (request, response) => {
-  response.status(200).send({ type: "success", message: "Hello" });
+  response
+    .status(200)
+    .send({ type: "success", message: `Hello ${process.env.NAME}` });
 });
 
 /*    In app.js of all services   */
